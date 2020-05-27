@@ -14,3 +14,5 @@ dialog = QMainWindow()
 ui = Dialog(dialog)
 dialog.show()
 sys.exit(app.exec_())
+
+##
