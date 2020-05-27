@@ -1,0 +1,14 @@
+You need to install following things to run this program:
+PyQt5
+PyQt5Designer (for editing gui)
+folium
+pymongo
+sshtunnel
+
+To Use PyQT5Designer: execute designer.exe
+in Virtualenv Environment go to:
+Source Code\venv\Lib\site-packages\PyQt5\Qt\bin
+or 
+in System Interpreter go to:
+python_install_path\Lib\site-packages\PyQt5\Qt\bin
+
