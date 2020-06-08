@@ -13,6 +13,7 @@ from database.connector import Connector
 
 class Map(object):
 
+
     def __init__(self, mobile_network_type):
         self.mobile_network_type = mobile_network_type
         self.restructure_col = None
@@ -110,6 +111,11 @@ class Map(object):
             ).add_to(m)
 
         logging.info('Added squares to map')
+
+        # test tower
+        towerIcon = folium.features.CustomIcon('tower.png', icon_size=(35, 35))
+        folium.Marker([49.01762, 12.11084], tooltip='<strong>Mobilfunkmasten</strong>', icon=towerIcon).add_to(m)
+        logging.info('Added towers to map')
 
         # https://stackabuse.com/creating-and-deleting-directories-with-python/
         try:
