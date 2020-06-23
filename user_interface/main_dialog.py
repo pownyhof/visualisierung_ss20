@@ -35,8 +35,20 @@ class Dialog(Ui_MainWindow):
             logging.error('No Button checked. Continue with LTE')
         logging.debug('Selected mobile network type: ' + mobile_network_type)
 
+        # identify mobile network box
+        if self.telekom_button.isChecked():
+            network = Config.telekom
+        elif self.vodafone_button.isChecked():
+            network = Config.vodafone
+        elif self.telefonica_button.isChecked():
+            network = Config.telefonica
+        else:
+            network = Config.allNetworks
+            logging.error('No Button checked. Continue with all networks')
+        logging.debug('Selected network: ' + network)
+
         # initialize map generator
-        map_generator = Map(mobile_network_type)
+        map_generator = Map(mobile_network_type, network)
         map_generator.generate_map()
         logging.debug('File path: file://' + os.path.realpath(map_generator.file_path))
         webbrowser.open('file://' + os.path.realpath(map_generator.file_path))

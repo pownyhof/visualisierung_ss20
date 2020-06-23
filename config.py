@@ -43,6 +43,12 @@ class Config(object):
     umts = 'UMTS'
     gsm = 'GSM'
 
+    # mobile network
+    allNetworks = '0'
+    telekom = '1'
+    vodafone = '2'
+    telefonica = '3'
+
     # log configurations
     log_date_format = '%Y-%m-%d %H:%M:%S'
     log_format = '%(asctime)s.%(msecs)03d %(levelname)s %(module)s - %(funcName)s: %(message)s'

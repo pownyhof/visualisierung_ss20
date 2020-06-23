@@ -14,8 +14,9 @@ from database.connector import Connector
 class Map(object):
 
 
-    def __init__(self, mobile_network_type):
+    def __init__(self, mobile_network_type, network):
         self.mobile_network_type = mobile_network_type
+        self.network = network
         self.restructure_col = None
         self.clean_col = None
         self.folder_path = os.path.abspath('maps')
@@ -49,14 +50,16 @@ class Map(object):
 
         # set collections (default: lte)
         connect_to_collections()
-
+        logging.info('test')
         map_list = []
         # save squares in a list
         for x in self.restructure_col.find({},
-                                           {'latitude': 1, 'longitude': 1, 'square_data': 1}):
-            map_list.append({'latitude': x['latitude'],
-                             'longitude': x['longitude'],
-                             'square_data': x['square_data']})
+                                           {'latitude': 1, 'longitude': 1, 'square_data': 1, 'cell_tower.mnc': 1}):
+           if (x['cell_tower'][0]['mnc']) == int(self.network) or self.network == '0':
+                map_list.append({'latitude': x['latitude'],
+                                'longitude': x['longitude'],
+                                'square_data': x['square_data'],
+                                 'mnc': x['cell_tower'][0]['mnc']})
 
         logging.info('Saved squares in list: ' + str(len(map_list)))
         logging.debug('First entry of map_list:' + pprint.pformat(map_list[0]))
@@ -111,11 +114,6 @@ class Map(object):
             ).add_to(m)
 
         logging.info('Added squares to map')
-
-        # test tower
-        towerIcon = folium.features.CustomIcon('tower.png', icon_size=(35, 35))
-        folium.Marker([49.01762, 12.11084], tooltip='<strong>Mobilfunkmasten</strong>', icon=towerIcon).add_to(m)
-        logging.info('Added towers to map')
 
         # https://stackabuse.com/creating-and-deleting-directories-with-python/
         try:
