@@ -50,7 +50,7 @@ class Map(object):
 
         # set collections (default: lte)
         connect_to_collections()
-        logging.info('test')
+
         map_list = []
         # save squares in a list
         for x in self.restructure_col.find({},
