@@ -35,6 +35,31 @@ class Dialog(Ui_MainWindow):
             logging.error('No Button checked. Continue with LTE')
         logging.debug('Selected mobile network type: ' + mobile_network_type)
 
+        # get date
+        if self.useDate.isChecked():
+            use_date = 'true'
+        else:
+            use_date = 'false'
+        start_date = self.startDate.date()
+        end_date = self.endDate.date()
+        logging.info('should date filter be used: ' + use_date)
+        logging.info(start_date)
+        logging.info(end_date)
+
+        date = self.dateTimeEdit.dateTime()
+        logging.info(date)
+
+        # get time
+        if self.useTime.isChecked():
+            use_time = 'true'
+        else:
+            use_time = 'false'
+        start_time = self.startTime.time()
+        end_time = self.endTime.time()
+        logging.info('should time filter be used: ' + use_time)
+        logging.info(start_time)
+        logging.info(end_time)
+
         # identify mobile network box
         if self.telekom_button.isChecked():
             network = Config.telekom
@@ -48,7 +73,10 @@ class Dialog(Ui_MainWindow):
         logging.debug('Selected network: ' + network)
 
         # initialize map generator
-        map_generator = Map(mobile_network_type, network)
+        map_generator = Map(mobile_network_type, network, use_date, start_date, end_date, use_time, start_time,
+                            end_time)
         map_generator.generate_map()
         logging.debug('File path: file://' + os.path.realpath(map_generator.file_path))
         webbrowser.open('file://' + os.path.realpath(map_generator.file_path))
+
+     #, use_date, start_date, end_date, use_time, start_time, end_time

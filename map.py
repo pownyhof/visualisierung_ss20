@@ -14,9 +14,15 @@ from database.connector import Connector
 class Map(object):
 
 
-    def __init__(self, mobile_network_type, network):
+    def __init__(self, mobile_network_type, network, use_date, start_date, end_date, use_time, start_time, end_time):
         self.mobile_network_type = mobile_network_type
         self.network = network
+        self.use_date = use_date
+        self.start_date = start_date
+        self.end_date = end_date
+        self.use_time = use_time
+        self.start_time = start_time
+        self.end_time = end_time
         self.restructure_col = None
         self.clean_col = None
         self.folder_path = os.path.abspath('maps')
@@ -55,14 +61,19 @@ class Map(object):
         # save squares in a list
         for x in self.restructure_col.find({},
                                            {'latitude': 1, 'longitude': 1, 'square_data': 1, 'cell_tower.mnc': 1}):
+
            if (x['cell_tower'][0]['mnc']) == int(self.network) or self.network == '0':
-                map_list.append({'latitude': x['latitude'],
-                                'longitude': x['longitude'],
-                                'square_data': x['square_data'],
-                                 'mnc': x['cell_tower'][0]['mnc']})
+               if (self.use_date == 'true' and self.start_date < x['square_data'][0]['time'].date() < self.end_date) or self.use_date == 'false':
+                    if (self.use_time == 'true' and self.start_time < x['square_data'][0]['time'].time() < self.end_time) or self.use_time == 'false':
+                            map_list.append({'latitude': x['latitude'],
+                            'longitude': x['longitude'],
+                            'square_data': x['square_data'],
+                            'mnc': x['cell_tower'][0]['mnc']})
 
         logging.info('Saved squares in list: ' + str(len(map_list)))
-        logging.debug('First entry of map_list:' + pprint.pformat(map_list[0]))
+        if len(map_list) > 0:
+            logging.debug('First entry of map_list:' + pprint.pformat(map_list[0]))
+        else: logging.error('no data matching filter critera')
 
         heatmap_list = []
         # save all locations in a list

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>661</width>
-    <height>373</height>
+    <width>542</width>
+    <height>310</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,8 +20,8 @@
    <widget class="QPushButton" name="generate_button">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>170</y>
+      <x>300</x>
+      <y>150</y>
       <width>100</width>
       <height>50</height>
      </rect>
@@ -33,262 +33,282 @@
      <string>Update</string>
     </property>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>80</y>
-      <width>451</width>
-      <height>71</height>
+      <x>240</x>
+      <y>60</y>
+      <width>111</width>
+      <height>69</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout_3">
-     <item row="0" column="2">
-      <widget class="Line" name="line_3">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
+       </property>
+       <property name="text">
+        <string>End</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
-     </item>
-     <item row="0" column="0">
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <widget class="QRadioButton" name="telekom_button">
-         <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
-         </property>
-         <property name="text">
-          <string>Telekom</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="vodafone_button">
-         <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
-         </property>
-         <property name="text">
-          <string>Vodafone</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="telefonica_button">
-         <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
-         </property>
-         <property name="text">
-          <string>Telefonica</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
      </item>
      <item row="0" column="1">
-      <widget class="Line" name="line_4">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
+      <widget class="QLabel" name="dateLabel">
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
+       </property>
+       <property name="text">
+        <string>Date</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
-     <item row="0" column="3">
-      <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0">
-       <property name="spacing">
-        <number>6</number>
-       </property>
-       <property name="sizeConstraint">
-        <enum>QLayout::SetDefaultConstraint</enum>
-       </property>
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QRadioButton" name="lte_button">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
-         </property>
-         <property name="text">
-          <string>LTE</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="umts_button">
-         <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
-         </property>
-         <property name="text">
-          <string>UMTS</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="gsm_button">
-         <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
-         </property>
-         <property name="text">
-          <string>GSM</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="0" column="4">
-      <widget class="Line" name="line">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
+     <item row="1" column="1">
+      <widget class="QDateEdit" name="startDate">
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="5">
-      <widget class="Line" name="line_2">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
+     <item row="2" column="1">
+      <widget class="QDateEdit" name="endDate">
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="9">
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_3">
-         <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
-         </property>
-         <property name="text">
-          <string>End</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLabel" name="dateLabel_2">
-         <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
-         </property>
-         <property name="text">
-          <string>Time</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="label_4">
-         <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
-         </property>
-         <property name="text">
-          <string>Start</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QTimeEdit" name="timeEdit">
-         <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QTimeEdit" name="timeEdit_2">
-         <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="0" column="7">
-      <widget class="Line" name="line_5">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label">
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
        </property>
-      </widget>
-     </item>
-     <item row="0" column="6">
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_2">
-         <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
-         </property>
-         <property name="text">
-          <string>End</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLabel" name="dateLabel">
-         <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
-         </property>
-         <property name="text">
-          <string>Date</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QDateEdit" name="startDate">
-         <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QDateEdit" name="endDate">
-         <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="label">
-         <property name="styleSheet">
-          <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
-         </property>
-         <property name="text">
-          <string>Start</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="0" column="8">
-      <widget class="Line" name="line_6">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
+       <property name="text">
+        <string>Start</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>60</y>
+      <width>128</width>
+      <height>69</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
+       </property>
+       <property name="text">
+        <string>End</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="dateLabel_2">
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
+       </property>
+       <property name="text">
+        <string>Time</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
+       </property>
+       <property name="text">
+        <string>Start</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QTimeEdit" name="startTime">
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QTimeEdit" name="endTime">
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>60</y>
+      <width>81</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0">
+     <property name="spacing">
+      <number>6</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QRadioButton" name="lte_button">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
+       </property>
+       <property name="text">
+        <string>LTE</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="umts_button">
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
+       </property>
+       <property name="text">
+        <string>UMTS</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="gsm_button">
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
+       </property>
+       <property name="text">
+        <string>GSM</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>60</y>
+      <width>74</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QRadioButton" name="telekom_button">
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
+       </property>
+       <property name="text">
+        <string>Telekom</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="vodafone_button">
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
+       </property>
+       <property name="text">
+        <string>Vodafone</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="telefonica_button">
+       <property name="styleSheet">
+        <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
+       </property>
+       <property name="text">
+        <string>Telefonica</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QRadioButton" name="useTime">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>30</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
+    </property>
+    <property name="text">
+     <string>setze Zeit</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="useDate">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>30</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.074, y1:0.107909, x2:1, y2:1, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(54, 81, 82, 255));</string>
+    </property>
+    <property name="text">
+     <string>setze Datum</string>
+    </property>
+   </widget>
+   <widget class="QDateTimeEdit" name="dateTimeEdit">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>170</y>
+      <width>194</width>
+      <height>22</height>
+     </rect>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -296,7 +316,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>661</width>
+     <width>542</width>
      <height>21</height>
     </rect>
    </property>
