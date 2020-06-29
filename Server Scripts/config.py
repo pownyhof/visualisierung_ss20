@@ -21,3 +21,16 @@ class Config(object):
     # attributes
     age = 3000.0
     accuracy = 13.0
+
+    min_mcc = 202
+    max_mcc = 901
+
+    min_mnc = 0
+    max_mnc = 999
+
+    min_lac = 0
+    max_lac = 65533
+
+    min_cid = 0
+    max_cid_umts_lte = 268435455
+    max_cid_gsm = 65535
