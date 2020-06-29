@@ -42,13 +42,44 @@ print('Remaining documents: ' + str(clean_col.count_documents({})))
 
 # remove cell_info objects that are not active
 clean_col.update_many({}, {'$pull': {'cell_info': {'active': False}}})
-print('Removed all cell_infos with active = false')
+print('Removed all cell_info with active = false')
 print('Remaining documents: ' + str(clean_col.count_documents({})))
 
-# remove documents that have no active cell_infos anymore
+# remove documents that have no active cell_info anymore
 # CAUTION has to be executed after updating cell_info objects that are no active
 clean_col.delete_many({'cell_info.active': {'$ne': True}})
-print('Removed all documents that have no active cell_infos anymore')
+print('Removed all documents that have no active cell_info anymore')
+print('Remaining documents: ' + str(clean_col.count_documents({})))
+
+# delete documents if the mobile_country_code is not within the sequence [202, ..., 901]
+clean_col.delete_many(
+    {'$or': [{'cell_info.$[].cell_identity.mobile_country_code': {'$lte': Config.min_mcc}},
+             {'cell_info.$[].cell_identity.mobile_country_code': {'$gte': Config.max_mcc}}]})
+
+# delete documents if the mobile_network_code is not within the sequence [0, ..., 999]
+clean_col.delete_many(
+    {'$or': [{'cell_info.$[].cell_identity.mobile_network_code': {'$lte': Config.min_mnc}},
+             {'cell_info.$[].cell_identity.mobile_network_code': {'$gte': Config.max_mnc}}]})
+
+# delete documents if the location_area_code is not within the sequence [0, ..., 65533]
+clean_col.delete_many(
+    {'$or': [{'cell_info.$[].cell_identity.location_area_code': {'$lte': Config.min_lac}},
+             {'cell_info.$[].cell_identity.location_area_code': {'$gte': Config.max_lac}}]})
+
+# delete documents if the cell_id is not within the sequence [0, ..., 65535] for the cell_info.type 'GSM' and
+# [0, ..., 268435455] for the cell_info.type 'LTE' and 'UMTS'
+clean_col.delete_many(
+    {'cell_info.$[].cell_identity.cell_id': {'$lte': Config.min_cid}})
+if 'cell_info.$[].type' == 'GSM':
+    clean_col.delete_many(
+        {'cell_info.$[].cell_identity.cell_id': {'$gte': Config.max_cid_gsm}})
+elif 'cell_info.$[].type' == 'LTE':
+    clean_col.delete_many(
+        {'cell_info.$[].cell_identity.cell_id': {'$gte': Config.max_cid_umts_lte}})
+elif 'cell_info.$[].type' == 'UMTS':
+    clean_col.delete_many(
+        {'cell_info.$[].cell_identity.cell_id': {'$gte': Config.max_cid_umts_lte}})
+print('Removed all documents with invalid location_identity')
 print('Remaining documents: ' + str(clean_col.count_documents({})))
 
 # remove unnecessary field 'source_id'
@@ -85,7 +116,18 @@ clean_col.update_many({}, {'$unset':
                                 'cell_info.$[].cell_signal_strength.reference_signal_signal_to_noise_ratio': ''
                                 }})
 print('Removed all fields of "cell_signal_strength" except "dbm"')
+print('Operation finished. Remaining documents: ' + str(clean_col.count_documents({})))
 
+# remove documents with missing or empty fields (lac, mnc, mcc, cid)
+clean_col.delete_many(
+    {"$or": [
+        {"cell_info.0.cell_identity.location_area_code": {"$exists": False}},
+        {"cell_info.0.cell_identity.mobile_country_code": {"$exists": False}},
+        {"cell_info.0.cell_identity.mobile_network_code": {"$exists": False}},
+        {"cell_info.0.cell_identity.cell_id": {"$exists": False}},
+    ]}
+)
+print('Removed all documents with missing or empty cel_identity fields')
 print('Operation finished. Remaining documents: ' + str(clean_col.count_documents({})))
 
 # disconnect from server
