@@ -127,7 +127,7 @@ clean_col.delete_many(
         {"cell_info.0.cell_identity.cell_id": {"$exists": False}},
     ]}
 )
-print('Removed all documents with missing or empty cel_identity fields')
+print('Removed all documents with missing or empty cell_identity fields')
 print('Operation finished. Remaining documents: ' + str(clean_col.count_documents({})))
 
 # disconnect from server
