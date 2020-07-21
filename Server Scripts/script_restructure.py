@@ -33,12 +33,6 @@ print('Deleted GSM collection')
 def create_id_geo(latitude, longitude):
     return (latitude.replace('.', '')) + '0' + (longitude.replace('.', ''))
 
-# seperate timestampt into date and time
-#def create_date(tim):
- #   return tim[:10]
-
-#def create_time(tim):
- #   return tim[14:19]
 
 # creates a comparable tower id for api call usage
 def create_id_tower(typ, mcc, mnc, lac, cid):
