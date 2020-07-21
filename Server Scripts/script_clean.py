@@ -116,7 +116,7 @@ clean_col.update_many({}, {'$unset':
                                 'cell_info.$[].cell_signal_strength.reference_signal_signal_to_noise_ratio': ''
                                 }})
 print('Removed all fields of "cell_signal_strength" except "dbm"')
-print('Operation finished. Remaining documents: ' + str(clean_col.count_documents({})))
+print('Remaining documents: ' + str(clean_col.count_documents({})))
 
 # remove documents with missing or empty fields (lac, mnc, mcc, cid)
 clean_col.delete_many(
