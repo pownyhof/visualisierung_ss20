@@ -26,7 +26,7 @@ class Config(object):
     max_mcc: int = 901
 
     min_mnc: int = 0
-    max_mnc: int = 999
+    max_mnc: int = 990
 
     min_lac: int = 0
     max_lac: int = 65533
